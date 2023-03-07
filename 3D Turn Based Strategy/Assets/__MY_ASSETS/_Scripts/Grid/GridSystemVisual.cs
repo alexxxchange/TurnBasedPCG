@@ -45,7 +45,7 @@ public class GridSystemVisual : MonoBehaviour
 		Instance = this;
 	}
 
-	private void Start()
+    public void InitGridVisuals()
 	{
 		gridVisualSingleArray = new GridVisualSingle[LevelGrid.Instance.GetWidth(), LevelGrid.Instance.GetHeight()];
 
@@ -54,8 +54,18 @@ public class GridSystemVisual : MonoBehaviour
 			for (int z = 0; z < LevelGrid.Instance.GetHeight(); z++)
 			{
 				GridPosition gridPosition = new GridPosition(x, z);
-				Transform gridVisualSingleTransform = Instantiate(gridVisualSinglePrefab, LevelGrid.Instance.GetWorldPosition(gridPosition), Quaternion.identity);
-				gridVisualSingleArray[x, z] = gridVisualSingleTransform.GetComponent<GridVisualSingle>();
+			
+				PathNode temp = Pathfinding.Instance.GetNode(x, z);
+
+				if (temp != null && temp.IsValid())        // check if we need the visual
+				{
+					print("found valid grid space. creating visual");
+					Transform gridVisualSingleTransform = Instantiate(gridVisualSinglePrefab, LevelGrid.Instance.GetWorldPosition(gridPosition), Quaternion.identity);
+					gridVisualSingleTransform.SetParent(this.transform);
+					gridVisualSingleArray[x, z] = gridVisualSingleTransform.GetComponent<GridVisualSingle>();
+				}
+
+			
 			}
 		}
 
@@ -68,7 +78,7 @@ public class GridSystemVisual : MonoBehaviour
 	{
 		foreach (GridVisualSingle gridVisualSingle in gridVisualSingleArray)
 		{
-			gridVisualSingle.Hide();
+			if (gridVisualSingle != null) gridVisualSingle.Hide(); //ae -added this null check it was look for grid instances that hadnt been spawned because they failed validation 
 		}
 	}
 

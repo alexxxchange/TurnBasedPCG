@@ -22,6 +22,7 @@ public class Pathfinding : MonoBehaviour
 	private Transform gridDebugObjectprefab;
 	[SerializeField]
 	private LayerMask obstacleLayerMask;
+	[SerializeField] LayerMask tileValidationMask;
 
 	private GridSystem<PathNode> gridSystem;
 
@@ -56,6 +57,10 @@ public class Pathfinding : MonoBehaviour
 				if(Physics.Raycast(worldPosition + Vector3.down * rayCastOffset, Vector3.up, rayCastOffset * 2, obstacleLayerMask))
 				{
 					GetNode(x, z).SetIsWalkable(false);
+				}
+				if (Physics.Raycast(worldPosition + Vector3.down * rayCastOffset, Vector3.up, rayCastOffset * 2, tileValidationMask))
+				{
+					GetNode(x, z).SetIsValid(true);
 				}
 
 
@@ -162,10 +167,12 @@ public class Pathfinding : MonoBehaviour
 
 	}
 
-	private PathNode GetNode(int x, int z)
+	public PathNode GetNode(int x, int z)
 	{
 		return gridSystem.GetGridObject(new GridPosition(x, z));
 	}
+
+
 
 	private List<PathNode> GetNeighborList(PathNode currentNode)
 	{

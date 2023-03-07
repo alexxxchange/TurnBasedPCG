@@ -74,7 +74,11 @@ public class LevelGenerator : MonoBehaviour
 
 		Debug.Log("Generating Pathfinding Grid...");
 		Pathfinding.Instance.Setup(LevelGrid.Instance.GetWidth(), LevelGrid.Instance.GetHeight(), LevelGrid.Instance.GetCellSize());
+
 		yield return new WaitForSeconds(1f);
+
+		Debug.Log("initilizing Grid visuals...");
+		GridSystemVisual.Instance.InitGridVisuals();
 
 		if (spawnEnemies)
 		{

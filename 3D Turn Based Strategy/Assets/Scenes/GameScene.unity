@@ -514,8 +514,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.14116788, y: -8.580988e-15, z: 1.0367841e-15, w: 0.9899857}
-  m_LocalPosition: {x: 100, y: 4.12, z: 91}
+  m_LocalRotation: {x: 0.22321631, y: -8.9638744e-17, z: 9.515478e-17, w: 0.97476894}
+  m_LocalPosition: {x: 100, y: 5.85, z: 91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 4.12, z: -9}
+  m_FollowOffset: {x: 0, y: 5.85, z: -9}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -1984,6 +1984,9 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  tileValidationMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &810826015
 Transform:
   m_ObjectHideFlags: 0
@@ -5346,7 +5349,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776913, y: 1}
+    m_SensorSize: {x: 1.7779273, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5362,8 +5365,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920360434}
-  m_LocalRotation: {x: 0.14116788, y: -8.580988e-15, z: 1.0367841e-15, w: 0.9899857}
-  m_LocalPosition: {x: 100, y: 4.12, z: 91}
+  m_LocalRotation: {x: 0.22321631, y: -8.9638744e-17, z: 9.515478e-17, w: 0.97476894}
+  m_LocalPosition: {x: 100, y: 5.85, z: 91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

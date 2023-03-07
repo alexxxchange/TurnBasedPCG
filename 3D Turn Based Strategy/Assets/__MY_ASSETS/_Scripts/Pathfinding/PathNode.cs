@@ -12,8 +12,12 @@ public class PathNode
 	private PathNode previousNode;
 
 	private bool isWalkable = true;
+	private bool isValid = false;
 
-	
+
+
+
+
 	public PathNode(GridPosition gridPosition)
 	{
 		this.gridPosition = gridPosition;
@@ -76,6 +80,16 @@ public class PathNode
 	public void SetIsWalkable(bool isWalkable)
 	{
 		this.isWalkable = isWalkable;
+	}
+
+	public bool IsValid()
+	{
+		return isValid;
+	}
+
+	public void SetIsValid(bool value)
+	{
+		this.isValid = value;
 	}
 
 	public override string ToString()
