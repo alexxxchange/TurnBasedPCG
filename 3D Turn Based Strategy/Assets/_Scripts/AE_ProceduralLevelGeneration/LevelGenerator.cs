@@ -10,20 +10,21 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
 
-	[Header("options")]
+	[Header("OPTIONS")]
 	[SerializeField] bool spawnDoors;
 	[SerializeField] bool spawnEnemies;
 	[SerializeField] bool spawnLoot;
 	[SerializeField] int targetNumberOfRooms = 12;
 
-	[Header("level Generation")]
+	[Header("LEVEL GENERATION")]
 	[SerializeField] GameObject startRoom;
 	[SerializeField] GameObject[] levelRooms;
 	[SerializeField] GameObject endRoomPrefab;
 	[SerializeField] List<Doorway> allDoors;
 	[SerializeField] List<Room> roomsInLevel;
 	[SerializeField] List<Transform> roomSpawnNodes;
-	[Header("loot")]
+
+	[Header("LOOT")]
 	[SerializeField] GameObject[] lootPrefabs;
 	[SerializeField] List<LootSpawnPoint> allLootSpawns;
 
@@ -40,7 +41,7 @@ public class LevelGenerator : MonoBehaviour
 	{
 		StartCoroutine(GenerateLevel());
 	}
-
+	
 	IEnumerator GenerateLevel()
 	{
 		Debug.Log("Generating Rooms...");
@@ -57,9 +58,12 @@ public class LevelGenerator : MonoBehaviour
 
 		GetNodes();
 		yield return new WaitForEndOfFrame();
-
-		GenerateEndRoom();
-		yield return new WaitForSeconds(1f);
+		
+		if(endRoomPrefab != null)
+		{
+			GenerateEndRoom();
+			yield return new WaitForSeconds(1f);
+		}
 
 		Debug.Log("All Rooms Generated!");
 
@@ -76,6 +80,11 @@ public class LevelGenerator : MonoBehaviour
 		Pathfinding.Instance.Setup(LevelGrid.Instance.GetWidth(), LevelGrid.Instance.GetHeight(), LevelGrid.Instance.GetCellSize());
 		yield return new WaitForSeconds(1f);
 
+<<<<<<< Updated upstream:3D Turn Based Strategy/Assets/_Scripts/AE_ProceeduralLevelScripts/LevelGenerator.cs
+=======
+		GridSystemVisual.Instance.InitGridVisuals();
+
+>>>>>>> Stashed changes:3D Turn Based Strategy/Assets/_Scripts/AE_ProceduralLevelGeneration/LevelGenerator.cs
 		if (spawnEnemies)
 		{
 			Debug.Log("Spawning Enemies...");
@@ -89,8 +98,6 @@ public class LevelGenerator : MonoBehaviour
 			GenerateLoot();
 			yield return new WaitForSeconds(1f);
 		}
-
-		
 
 		Debug.Log("Level Setup Complete!");
 	}
@@ -107,8 +114,15 @@ public class LevelGenerator : MonoBehaviour
 
 	public void GenerateStartRoom()
 	{
-		GameObject temp = Instantiate(startRoom, new Vector3(100, 0, 100), Quaternion.identity); // the "new Vector3" needs to be changed dynamically for larger dungeons. i.e. moved farther from 0,0.
+		GameObject temp = Instantiate(startRoom, new Vector3(LevelGrid.Instance.GetWidth(), 0, LevelGrid.Instance.GetHeight()), Quaternion.identity);
 		Room thisRoom = temp.GetComponent<Room>();
+
+		// turn off loot and enemy spawning in start room
+		thisRoom.LootSpawn.gameObject.SetActive(false);
+		foreach(EnemySpawns spawner in thisRoom.EnemySpawns)
+		{
+			spawner.gameObject.SetActive(false);	
+		}
 		roomsInLevel.Add(thisRoom);
 	}
 
@@ -120,9 +134,9 @@ public class LevelGenerator : MonoBehaviour
 		for (int i = 0; i < roomsInLevel.Count; i++) // add all rooms to temp list
 		{
 			Room tempRoom = roomsInLevel[i]; // add all nodes from this room
-			for (int j = 0; j < tempRoom.nodes.Length; j++)
+			for (int j = 0; j < tempRoom.Nodes.Length; j++)
 			{
-				tempRoomSpawnNodes.Add(tempRoom.nodes[j]); //add each to temp list
+				tempRoomSpawnNodes.Add(tempRoom.Nodes[j]); //add each to temp list
 			}
 		}
 
@@ -149,10 +163,9 @@ public class LevelGenerator : MonoBehaviour
 		//get loot spawn points
 		for (int i = 0; i < roomsInLevel.Count; i++)
 		{
-			Room tempRoom = roomsInLevel[i];
-			for (int j = 0; j < tempRoom.lootSpawns.Length; j++)
+			if (roomsInLevel[i].LootSpawn.isActiveAndEnabled)
 			{
-				allLootSpawns.Add(tempRoom.lootSpawns[j]);
+				allLootSpawns.Add(roomsInLevel[i].LootSpawn);
 			}
 		}
 		//randomly pick some points and instatiate loot
@@ -171,9 +184,12 @@ public class LevelGenerator : MonoBehaviour
 		for (int i = 0; i < roomsInLevel.Count; i++)
 		{
 			Room tempRoom = roomsInLevel[i];
-			for (int j = 0; j < tempRoom.enemySpawns.Length; j++)
+			for (int j = 0; j < tempRoom.EnemySpawns.Length; j++)
 			{
-				allEnemySpawns.Add(tempRoom.enemySpawns[j]);
+				if(tempRoom.EnemySpawns[j].isActiveAndEnabled)
+				{
+					allEnemySpawns.Add(tempRoom.EnemySpawns[j]);
+				}
 			}
 		}
 		//randomly pick some points and instatiate 

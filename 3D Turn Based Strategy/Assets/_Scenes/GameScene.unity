@@ -514,8 +514,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
+<<<<<<< Updated upstream:3D Turn Based Strategy/Assets/Scenes/GameScene.unity
   m_LocalRotation: {x: 0.14116788, y: -8.580988e-15, z: 1.0367841e-15, w: 0.9899857}
   m_LocalPosition: {x: 100, y: 4.12, z: 91}
+=======
+  m_LocalRotation: {x: 0.22321631, y: 1e-45, z: -0, w: 0.97476894}
+  m_LocalPosition: {x: 150, y: 5.85, z: 143}
+>>>>>>> Stashed changes:3D Turn Based Strategy/Assets/_Scenes/GameScene.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1976,8 +1981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce65076f08b659849b3db620052dd8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 100
-  height: 100
+  width: 150
+  height: 150
   cellSize: 2
   gridDebugObjectprefab: {fileID: 5233230946249434178, guid: bfeb09002e5c49d46bdf53e0ac959f0f,
     type: 3}
@@ -1992,7 +1997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810826013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 0, z: -25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2214,7 +2219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977226874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 100}
+  m_LocalPosition: {x: 150, y: 0, z: 152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2728,13 +2733,12 @@ MonoBehaviour:
   spawnDoors: 1
   spawnEnemies: 1
   spawnLoot: 1
-  targetNumberOfRooms: 10
-  startRoom: {fileID: 9084776135626122499, guid: c76a92dc1f0b34285a3c544b6b212373,
+  targetNumberOfRooms: 8
+  startRoom: {fileID: 5177220653066166846, guid: c425a7e08e9bcbc49ac762e6751f3c84,
     type: 3}
   levelRooms:
-  - {fileID: 9084776135626122499, guid: 3abf66ac4761a49948215eb60ad97496, type: 3}
-  endRoomPrefab: {fileID: 9084776135626122499, guid: 69afd67b516f447ff806464119662d0f,
-    type: 3}
+  - {fileID: 5177220653066166846, guid: c425a7e08e9bcbc49ac762e6751f3c84, type: 3}
+  endRoomPrefab: {fileID: 0}
   allDoors: []
   roomsInLevel: []
   roomSpawnNodes: []
@@ -3535,7 +3539,7 @@ PrefabInstance:
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
@@ -3545,7 +3549,7 @@ PrefabInstance:
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 98
+      value: 148
       objectReference: {fileID: 0}
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
@@ -5235,8 +5239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2458e16cd3e4f4d860fce268235670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelGridWidth: 100
-  levelGridHeight: 100
+  levelGridWidth: 150
+  levelGridHeight: 150
   levelGridCellSize: 2
   gridDebugObjectPrefab: {fileID: 5233230946249434178, guid: 3501b0871219716429c7e148e4af58a8,
     type: 3}
@@ -5248,7 +5252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817752263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25, y: 0, z: -25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5346,7 +5350,11 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
+<<<<<<< Updated upstream:3D Turn Based Strategy/Assets/Scenes/GameScene.unity
     m_SensorSize: {x: 1.776913, y: 1}
+=======
+    m_SensorSize: {x: 1.7773167, y: 1}
+>>>>>>> Stashed changes:3D Turn Based Strategy/Assets/_Scenes/GameScene.unity
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5362,8 +5370,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920360434}
+<<<<<<< Updated upstream:3D Turn Based Strategy/Assets/Scenes/GameScene.unity
   m_LocalRotation: {x: 0.14116788, y: -8.580988e-15, z: 1.0367841e-15, w: 0.9899857}
   m_LocalPosition: {x: 100, y: 4.12, z: 91}
+=======
+  m_LocalRotation: {x: 0.22321631, y: 1e-45, z: -0, w: 0.97476894}
+  m_LocalPosition: {x: 150, y: 5.85, z: 143}
+>>>>>>> Stashed changes:3D Turn Based Strategy/Assets/_Scenes/GameScene.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6350,7 +6363,7 @@ PrefabInstance:
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
@@ -6360,7 +6373,7 @@ PrefabInstance:
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 152
       objectReference: {fileID: 0}
     - target: {fileID: 9011435068636670821, guid: 0a8bc86f47f69494e87a84865dc5c8c2,
         type: 3}
